@@ -1,3 +1,3 @@
-package pl.felis.interview.common
+package pl.felis.interview.common.exception
 
 class EntityFetchFailureException(ex: Throwable) : RuntimeException(ex) {}
