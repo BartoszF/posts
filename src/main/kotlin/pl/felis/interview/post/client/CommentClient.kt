@@ -1,6 +1,6 @@
 package pl.felis.interview.post.client
 
-import pl.felis.interview.post.dto.CommentDto
+import pl.felis.interview.post.client.dto.CommentDto
 
 interface CommentClient {
     fun findAll(): List<CommentDto>

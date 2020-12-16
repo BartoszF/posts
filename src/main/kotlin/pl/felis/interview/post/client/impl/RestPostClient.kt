@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import pl.felis.interview.post.client.PostClient
-import pl.felis.interview.post.dto.PostDto
+import pl.felis.interview.post.client.dto.PostDto
 
 @Service
 class RestPostClient(

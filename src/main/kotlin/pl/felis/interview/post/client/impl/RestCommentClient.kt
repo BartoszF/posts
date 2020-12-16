@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import pl.felis.interview.post.client.CommentClient
-import pl.felis.interview.post.dto.CommentDto
+import pl.felis.interview.post.client.dto.CommentDto
 
 @Service
 class RestCommentClient(

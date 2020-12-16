@@ -8,10 +8,10 @@ import org.mockito.Mockito.mock
 import org.mockito.junit.jupiter.MockitoExtension
 import pl.felis.interview.post.client.CommentClient
 import pl.felis.interview.post.client.PostClient
+import pl.felis.interview.post.client.dto.CommentDto
+import pl.felis.interview.post.client.dto.PostDto
 import pl.felis.interview.post.client.impl.RestCommentClient
 import pl.felis.interview.post.client.impl.RestPostClient
-import pl.felis.interview.post.dto.CommentDto
-import pl.felis.interview.post.dto.PostDto
 import pl.felis.interview.post.service.PostService
 import pl.felis.interview.post.service.PostServiceImpl
 

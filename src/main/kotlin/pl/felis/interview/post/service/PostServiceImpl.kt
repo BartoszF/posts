@@ -3,7 +3,7 @@ package pl.felis.interview.post.service
 import org.springframework.stereotype.Service
 import pl.felis.interview.post.client.CommentClient
 import pl.felis.interview.post.client.PostClient
-import pl.felis.interview.post.dto.PostDto
+import pl.felis.interview.post.client.dto.PostDto
 import pl.felis.interview.post.entity.Post
 
 @Service

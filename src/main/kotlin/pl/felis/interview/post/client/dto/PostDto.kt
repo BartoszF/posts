@@ -1,4 +1,4 @@
-package pl.felis.interview.post.dto
+package pl.felis.interview.post.client.dto
 
 import pl.felis.interview.post.entity.Post
 
