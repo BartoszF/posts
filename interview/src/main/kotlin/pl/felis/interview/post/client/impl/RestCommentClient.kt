@@ -20,7 +20,7 @@ class RestCommentClient(
     }
 
     override fun findAllByPostId(postId: Long): List<Comment> {
-        return restTemplate.getForObject("$commentsUrl/?postId=$postId", Array<Comment>::class.java)?.toList()
+        return restTemplate.getForObject("$commentsUrl?postId=$postId", Array<Comment>::class.java)?.toList()
                 ?: emptyList()
     }
 }
