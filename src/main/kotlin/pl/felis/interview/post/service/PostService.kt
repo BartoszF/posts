@@ -1,7 +1,7 @@
 package pl.felis.interview.post.service
 
-import pl.felis.interview.post.dto.PostDto
+import pl.felis.interview.post.entity.Post
 
 interface PostService {
-    fun getAllPosts(): List<PostDto>
+    fun getAllPosts(): List<Post>
 }

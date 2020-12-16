@@ -1,8 +1,8 @@
 package pl.felis.interview.post.client
 
-import pl.felis.interview.post.entity.Post
+import pl.felis.interview.post.dto.PostDto
 
 interface PostClient {
-    fun findAll(): List<Post>
-    fun findById(postId: Long): Post?
+    fun findAll(): List<PostDto>
+    fun findById(postId: Long): PostDto?
 }

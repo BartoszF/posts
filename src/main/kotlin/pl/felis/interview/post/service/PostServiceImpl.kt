@@ -11,7 +11,7 @@ class PostServiceImpl(
         private val postClient: PostClient,
         private val commentsClient: CommentClient
 ) : PostService {
-    override fun getAllPosts(): List<PostDto> {
-        return postClient.findAll().map { Post.mapToDto(it, commentsClient.findAllByPostId(it.id)) }
+    override fun getAllPosts(): List<Post> {
+        return postClient.findAll().map { PostDto.mapToEntity(it, commentsClient.findAllByPostId(it.id)) }
     }
 }

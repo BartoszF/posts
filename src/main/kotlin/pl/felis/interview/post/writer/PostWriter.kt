@@ -1,9 +1,9 @@
 package pl.felis.interview.post.writer
 
-import pl.felis.interview.post.dto.PostDto
-import java.io.IOException
+import pl.felis.interview.common.WriteFailureException
+import pl.felis.interview.post.entity.Post
 
 interface PostWriter {
-    @Throws(IOException::class)
-    fun write(posts: List<PostDto>)
+    @Throws(WriteFailureException::class)
+    fun write(posts: List<Post>)
 }

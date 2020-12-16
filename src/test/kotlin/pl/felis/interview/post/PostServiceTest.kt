@@ -10,8 +10,8 @@ import pl.felis.interview.post.client.CommentClient
 import pl.felis.interview.post.client.PostClient
 import pl.felis.interview.post.client.impl.RestCommentClient
 import pl.felis.interview.post.client.impl.RestPostClient
-import pl.felis.interview.post.entity.Comment
-import pl.felis.interview.post.entity.Post
+import pl.felis.interview.post.dto.CommentDto
+import pl.felis.interview.post.dto.PostDto
 import pl.felis.interview.post.service.PostService
 import pl.felis.interview.post.service.PostServiceImpl
 
@@ -22,60 +22,60 @@ class PostServiceTest {
     @Test
     fun getAll_postWithoutComments_postReturned() {
         //given
-        val post = Post(1, 1, "Title", "body")
-        val comments: List<Comment> = emptyList()
+        val post = PostDto(1, 1, "Title", "body")
+        val comments: List<CommentDto> = emptyList()
         val postService = mockPostService(listOf(post), comments)
 
         //when
         val returnedPosts = postService.getAllPosts()
 
         //then
-        assertThat(returnedPosts).containsOnly(Post.mapToDto(post, comments))
+        assertThat(returnedPosts).containsOnly(PostDto.mapToEntity(post, comments))
     }
 
     @Test
     fun getAll_postWithComment_postReturned() {
         //given
-        val post = Post(1, 1, "Title", "body")
-        val comment = Comment(1, 1, "name", "email", "body")
+        val post = PostDto(1, 1, "Title", "body")
+        val comment = CommentDto(1, 1, "name", "email", "body")
         val postService = mockPostService(listOf(post), listOf(comment))
 
         //when
         val returnedPosts = postService.getAllPosts()
 
         //then
-        assertThat(returnedPosts).containsOnly(Post.mapToDto(post, listOf(comment)))
+        assertThat(returnedPosts).containsOnly(PostDto.mapToEntity(post, listOf(comment)))
     }
 
     @Test
     fun getAll_postWithCommentAndPostWithoutComment_allReturned() {
         //given
         val posts = listOf(
-                Post(1, 1, "Title", "body"),
-                Post(2, 2, "Title2", "body2")
+                PostDto(1, 1, "Title", "body"),
+                PostDto(2, 2, "Title2", "body2")
         )
-        val comments = mapOf(1L to listOf(Comment(1, 1, "name", "email", "body")))
+        val comments = mapOf(1L to listOf(CommentDto(1, 1, "name", "email", "body")))
         val postService = mockPostService(posts, comments.values.flatten().toList())
 
         //when
         val returnedPosts = postService.getAllPosts()
-        val expectedPosts = posts.map { Post.mapToDto(it, comments[it.id] ?: emptyList()) }.toList()
+        val expectedPosts = posts.map { PostDto.mapToEntity(it, comments[it.id] ?: emptyList()) }.toList()
 
         //then
         assertThat(returnedPosts).containsAll(expectedPosts)
     }
 
-    private fun mockPostService(posts: List<Post>, comments: List<Comment>): PostService {
+    private fun mockPostService(posts: List<PostDto>, comments: List<CommentDto>): PostService {
         return PostServiceImpl(mockPostRepository(posts), mockCommentRepository(comments))
     }
 
-    private fun mockPostRepository(data: List<Post>): PostClient {
+    private fun mockPostRepository(data: List<PostDto>): PostClient {
         val postRepository: PostClient = mock(RestPostClient::class.java)
         `when`(postRepository.findAll()).thenReturn(data)
         return postRepository
     }
 
-    private fun mockCommentRepository(data: List<Comment>): CommentClient {
+    private fun mockCommentRepository(data: List<CommentDto>): CommentClient {
         val commentRepository: CommentClient = mock(RestCommentClient::class.java)
         data.groupBy { it.postId }.forEach { (postId, comments) ->
             `when`(commentRepository.findAllByPostId(postId)).thenReturn(comments)
