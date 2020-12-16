@@ -10,7 +10,6 @@ import java.io.IOException
 
 @Service
 class PostWriterImpl(
-        private val objectMapper: ObjectMapper,
         @Value("\${writer.path}") private val directory: String
 ) : PostWriter {
     @Throws(WriteFailureException::class)
@@ -18,6 +17,7 @@ class PostWriterImpl(
         try {
             val directoryFile = File(directory)
             if (directoryFile.exists() || directoryFile.mkdir()) {
+                val objectMapper = ObjectMapper()
                 posts.forEach {
                     objectMapper.writeValue(File(directoryFile.path, "${it.id}.json"), it)
                 }
