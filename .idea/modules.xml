@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/interview.iml" filepath="$PROJECT_DIR$/.idea/modules/interview.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/interview.main.iml" filepath="$PROJECT_DIR$/.idea/modules/interview.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/interview.test.iml" filepath="$PROJECT_DIR$/.idea/modules/interview.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/posts.iml" filepath="$PROJECT_DIR$/.idea/posts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.felis.interview.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.felis.interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.felis.interview.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.felis.interview.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.felis.interview.test.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.felis.interview.test.iml" />
     </modules>
   </component>
 </project>
