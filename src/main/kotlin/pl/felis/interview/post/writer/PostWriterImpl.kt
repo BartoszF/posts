@@ -9,7 +9,10 @@ import java.io.File
 import java.io.IOException
 
 @Service
-class PostWriterImpl(private val objectMapper: ObjectMapper, @Value("\${writer.path}") private val directory: String) : PostWriter {
+class PostWriterImpl(
+        private val objectMapper: ObjectMapper,
+        @Value("\${writer.path}") private val directory: String
+) : PostWriter {
     @Throws(WriteFailureException::class)
     override fun write(posts: List<Post>) {
         try {
